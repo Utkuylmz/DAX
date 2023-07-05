@@ -1,0 +1,3 @@
+--DATEDIFF fonksiyonu, iki tarih arasındaki farkı belirli bir birimde hesaplamak için kullanılır.
+--1 Ocak 2022 tarihi ile 10 Ocak 2022 tarihi arasındaki gün farkını hesaplayan DAX formülü,
+DATEDIFF('gün', DATE(2022, 1, 1), DATE(2022, 1, 10))
