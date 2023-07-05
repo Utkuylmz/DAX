@@ -33,3 +33,61 @@ COUNTBLANK([satislar])
 --Müşteri tablosundaki satır sayısını veren DAX formülü,
 COUNTROWS('Müşteri')
 
+--COUNTX fonksiyonu, belirli bir tabloda veya tablo ifadesinde yer alan satırları temel alarak bir hesaplama yapar ve sonuç olarak belirli bir koşulu sağlayan satırların sayısını döndürür.
+--Satışlar tablosunda Satış Miktarı sütununda 1000'den büyük olan satırları 1 olarak değerlendiren ve bu satırların sayısını toplayan DAX formülü,
+COUNTX(Satışlar, IF(Satışlar[Satış Miktarı] > 1000, 1, 0))
+
+--DISTINCTCOUNT fonksiyonu, bir sütundaki benzersiz değerlerin sayısını sayar.
+--şehirler sütunundaki benzersiz şehirlerin sayılarını getiren DAX formülü,
+DISTINCTCOUNT([şehirler])
+
+--DISTINCTCOUNTBLANK fonksiyonu, bir sütundaki benzersiz değerlerin sayısını sayarken boş değerleri saymaz.
+--şehirler sütunundaki benzersiz şehirlerin sayılarını getirirken boş değerleri saymayan DAX formülü,
+DISTINCTCOUNTBLANK([şehirler])
+
+--MAX fonksiyonu, bir sütundaki veya iki skaler ifade arasındaki en büyük değeri döndürür.
+--İnternetsatışları tablosunun miktar sütununda bulunan en büyük değeri döndüren DAX formülü,
+MAX(İnternetSatışları[Miktar])
+
+--İki ifadenin sonucu arasındaki en büyük değeri döndüren DAX formülü,
+Max([TotalSatışlar], [TotalSatınalmalar])
+
+--MAXA fonksiyonu, bir sütundaki en büyük değeri döndürür. MAX fonksiyonundan farkı boole verilerini desteklemesi.
+--Tarih verileri için kullanıma uygundur.
+--tarih sütunundaki en büyük değeri döndüren Dax formülü,
+MAXA([Tarih])
+
+--MAXX fonksiyonu, tablonun her satırı için bir ifadeyi değerlendirir ve en büyük değeri döndürür.
+--Internetsatışları tablosundaki her sipariş için toplam vergi ve kargo tutarını hesaplamak üzere ikinci bağımsız değişken olarak bir ifade kullanan DAX formülü,
+= MAXX(Internetsatışları, Internetsatışları[toplamvergi]+ Internetsatışları[Kargotutarı])
+
+--MIN fonksiyonu, bir sütundaki veya iki skaler ifade arasındaki en küçük değeri döndürür.
+--İnternetsatışları tablosunun miktar sütununda bulunan en küçük değeri döndüren DAX formülü,
+MIN(İnternetSatışları[Miktar])
+
+--MINA fonksiyonu, bir sütundaki en küçük değeri döndürür. MIN fonksiyonundan farkı boole verilerini desteklemesi.
+--InternetSatışları tablosundan minimum kargotutarını döndüren Dax formülü,
+MINA(InternetSatışları[kargotutarı])
+
+--MINX fonksiyonu, tablonun her satırı için bir ifadeyi değerlendirir ve en küçük değeri döndürür.
+--Internetsatışları tablosundaki her sipariş için toplam vergi ve kargo tutarını hesaplamak üzere ikinci bağımsız değişken olarak bir ifade kullanan DAX formülü,
+= MINX(Internetsatışları, Internetsatışları[toplamvergi]+ Internetsatışları[Kargotutarı])
+
+--SUM fonksiyonu, tablonun belirli satırında bulunan verilerin toplamını almak için kullanılır.
+--Satışlar tablosundaki "Satış Miktarı" sütunundaki değerlerin toplamını hesaplayan DAX formülü,
+SUM(Satışlar[Satış Miktarı])
+
+--SUMX fonksiyonu, belirli bir tabloda veya tablo ifadesindeki satırlar üzerinde bir hesaplama yapar ve sonuç olarak belirli bir sütunun değerlerinin toplamını döndürür.
+--Ürünler tablosundaki her bir satır için Satış Miktarı ve Birim Fiyat sütunlarının çarpımını hesaplayan ve bu değerlerin toplamını döndüren DAX formülü,
+SUMX(Ürünler, Ürünler[Satış Miktarı] * Ürünler[Birim Fiyat])
+
+
+
+
+
+
+
+
+
+
+
