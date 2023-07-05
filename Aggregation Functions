@@ -1,0 +1,35 @@
+--AVERAGE fonksiyonu, bir sütundaki tüm sayıların ortalamasını döndürür.
+--satislar sütunundaki değerlerin ortalamasını alan DAX formülü,
+AVERAGE([satislar])
+
+--AVERAGEA fonksiyonu, bir sütundaki tüm verilerin ortalamasını alır. Metin değerlerini 0 alır, true, false değerlerini 1 ve 0 alır, boş değerleri 0 alır.
+--Sadece sayısal değerlerin doğru bir ortalaması isteniyorsa AVERAGE fonksiyonu kullanılmalıdır.
+--satislar sütunundaki tüm değerlerin ortalamasını alan DAX formülü (metin dahil),
+AVERAGEA([satislar])
+
+--AVERAGEX fonksiyonu, belirli bir tablodaki her satır için bir hesaplama yapar ve ardından bu hesaplamaların ortalamasını döndürür.  
+--Ürünler tablosundaki her bir ürün için "Satışlar" sütununun ortalamasını hesaplayan DAX formülü,
+AVERAGEX(Ürünler, [Satışlar])
+
+--COUNT fonksiyonu, belirtilen sütunda boş olmayan değerler içeren satır sayısını sayar.
+--TRUE/FALSE değerlerini saymaz, boşluk saymaz.
+--satislar sütunundaki boş olmayan ve boole olmayan tüm değer sayısını veren DAX formülü,
+COUNT([satislar]) 
+
+--COUNTA fonksiyonu, belirtilen sütunda boş olmayan değerler içeren satır sayısını sayar.
+--TRUE/FALSE değerlerini sayar. COUNT fonksiyonundan farkı.
+--satislar sütunundaki boş olmayan tüm değer sayısını veren DAX formülü,
+COUNTA([satislar]) 
+
+--COUNTAX fonksiyonu, belirli bir tabloda veya tablo ifadesindeki satırların üzerinde çalışarak bir hesaplama yapar ve sonuç olarak boş olmayan değerlerin sayısını döndürür.
+--Ürünler tablosundaki Stok Miktarı sütunundaki boş olmayan değerlerin sayısını hesaplayan DAX formülü,
+COUNTAX(Ürünler, Products[Stok Miktarı])
+
+--COUNTBLANK fonksiyonu, bir sütundaki boş hücrelerin sayısını sayar.
+--satislar sütunundaki boş değerlerin sayısını veren DAX formülü,
+COUNTBLANK([satislar])
+
+--COUNTROWS fonksiyonu, bir tablodaki satır sayısını sayar.
+--Müşteri tablosundaki satır sayısını veren DAX formülü,
+COUNTROWS('Müşteri')
+
