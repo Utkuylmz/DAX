@@ -1,9 +1,12 @@
-all, calculate, filter, rank, earlier, allexcept, 
 
 --ALL fonksiyonu, belirtilen sütun veya tablodaki filtrelemeleri kaldırarak, bu alanların tüm değerlerini hesaplamaya dahil eder.
 --Bu fonksiyon kendi başına kullanılmaz, ancak başka bir hesaplamanın gerçekleştirildiği sonuç kümesini değiştirmek için kullanılabilecek bir ara işlev görevi görür.
 --Satışlar tablosundaki Satış Miktarı sütununun toplamını hesaplarken, Kategori tablosunun bağlamını değiştirerek tüm kategorileri dikkate alan DAX formülü,
 CALCULATE(SUM(Satışlar[Satış Miktarı]), ALL('Kategori'[Kategori Adı]))
+
+--ALLEXCEPT fonksiyonu, belirli bir tablodaki tüm satırları döndürürken, belirli sütunları hariç tutmanızı sağlar.
+--Satışlar tablosunda Kategori sütununda uygulanan filtreleri korurken, diğer sütunlardaki filtreleri kaldıran ve satış miktarlarının toplamını hesaplayan DAX formülü,
+CALCULATE(SUM(Satışlar[Satış Miktarı]), ALLEXCEPT(Satışlar, Satışlar[Kategori]))
 
 --CALCULATE fonksiyonu, mevcut hesaplama bağlamında yeni bir bağlam oluşturmak için kullanılır.
 --Satışlar tablosundaki Satış Miktarı sütununun toplamını hesaplarken, filtre olarak Kategori sütununda Elektronik değerine sahip olan ürünleri dikkate alan DAX formülü,
@@ -13,4 +16,11 @@ CALCULATE(SUM(Satışlar[Satış Miktarı]), Satışlar[Kategori] = "Elektronik"
 --Çalışanlar tablosunda, Departman sütununda Finans değerine sahip çalışanları filtreleyen ve bu çalışanların Maaş sütununun ortalamasını hesaplayan DAX formülü,
 CALCULATE(AVERAGE(Çalışanlar[Maaş]), FILTER(Çalışanlar, Çalışanlar[Departman] = "Finans"))
 
---RANK fonksiyonu, 
+--RANK fonksiyonu, bir değeri sıralama kriterine göre belirli bir tabloda sıralar ve sıra numarasını döndürür.
+--Ürünler tablosundaki Stok Miktarı sütununa göre değerleri sıralayan ve her ürün için stok miktarına göre sıra numarasını veren DAX formülü,
+RANK(Ürünler[Stok Miktarı])
+
+--EARLİER fonksiyonu, yinelemeli hesaplamalar yaparken geçerli döngü içindeki önceki değeri kullanmanızı sağlar.
+--Satışlar tablosunda Satış Tarihi sütununda geçerli satış tarihinden daha önceki tarihleri filtreleyen ve bu tarihlerdeki Satış Miktarı sütununun toplamını hesaplayan DAX formülü,
+CALCULATE(SUM(Sales[Satış Miktarı]), FILTER(ALL(Sales), Sales[Satış Tarihi] < EARLIER(Sales[Satış Tarihi])))
+
