@@ -1,3 +1,4 @@
+
 --AVERAGE fonksiyonu, bir sütundaki tüm sayıların ortalamasını döndürür.
 --satislar sütunundaki değerlerin ortalamasını alan DAX formülü,
 AVERAGE([satislar])
