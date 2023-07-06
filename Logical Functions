@@ -1,1 +1,28 @@
-and, false, if, not, or, switch, true
+
+--AND fonksiyonu, belirtilen koşulların tümünün doğru (TRUE) olup olmadığını kontrol etmek için kullanılan bir mantıksal fonksiyondur. 
+--Ürünler tablosundaki her bir ürünün Stok Miktarı sütununda değeri 0'dan büyük ve Satış Miktarı sütununda değeri 0'dan büyük olduğunda "TRUE" değerini döndüren DAX formülü,
+AND(Ürünler[Stok Miktarı]>0, Ürünler[Satış Miktarı]>0)
+
+--FALSE fonksiyonu, DAX dilinde sabit olarak "FALSE" değerini döndüren bir fonksiyondur.
+--İnternet satışları 200000'i geçmediğinde yanlış değerini döndüren DAX formülü,
+IF(SUM('InternetSales_USD'[SalesAmount_USD]) >200000, TRUE(), false())
+
+--IF fonksiyonu, bir koşulu değerlendirir ve koşul doğru ise belirtilen değeri, koşul yanlış ise başka bir değeri döndürür.
+--Ürünler tablosundaki her bir ürünün Stok Miktarı sütununu kontrol eden ve eğer stok miktarı 0'dan büyük ise Stokta Var değerini döndüren, aksi takdirde "Stokta Yok" değerini döndüren DAX formülü,
+IF(Ürünler[Stok Miktarı]>0, "Stokta Var", "Stokta Yok")
+
+--NOT fonksiyonu, FALSE değerini TRUE olarak veya TRUE değerini FALSE olarak değiştirir.
+--IF fonksiyonundan çıkan sonucun ters sonucunu veren DAX formülü,
+NOT(IF([Siparişler]<300,"true","false"))
+
+--OR fonksiyonu, birden fazla koşuldan en az birinin doğru (TRUE) olup olmadığını kontrol etmek için kullanılan bir mantıksal fonksiyondur.
+--Müşteriler tablosundaki her bir müşterinin Yaş sütununu 18'den küçük veya Medeni Durum sütununu Evli olan durumları kontrol eden DAX formülü,
+OR(Müşteriler[Yaş]<18, Müşteriler[Medeni Durum]="Evli")
+
+--SWITCH fonksiyonu, belirtilen ifadelerin her birini sırayla değerlendirir ve eşleşen bir ifade bulduğunda ilgili değeri döndürür.
+--Müşteriler tablosundaki her bir müşteri türüne göre bireyselse 0.1 oranını, kurumsal ise 0.2 oranını, hiçbiri değilse 0 oranını döndüren DAX formülü,
+SWITCH(Müşteriler[Müşteri Türü], "Bireysel", 0.1, "Kurumsal", 0.2, 0.0)
+
+--TRUE fonksiyonu, DAX dilinde sabit olarak "TRUE" değerini döndüren bir fonksiyondur.
+--İnternet satışları 200000'i geçtiğinde doğru değerini döndüren DAX formülü,
+IF(SUM('InternetSales_USD'[SalesAmount_USD]) >200000, TRUE(), False())
