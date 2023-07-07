@@ -1,1 +1,4 @@
-rankx,
+
+--RANKX fonksiyonu, tablo bağımsız değişkenindeki her satır için sayı listesindeki bir sayının sıralamasını döndürür.
+--Ürünler tablosundaki her bir ürünü, InternetSatışları tablosundan gelen ilgili satış miktarlarına göre sıralayan hesaplamayı gerçekleştiren DAX formülü,
+RANKX(ALL(Ürünler), SUMX(RELATEDTABLE(InternetSatışları), [SatışMiktarı]))
