@@ -1,1 +1,4 @@
-blank, 
+
+--BLANK fonksiyonu, bir boşluk döndürür.
+--Ürünler tablosundaki her bir ürünün Satış Miktarı sütununu kontrol edip, eğer satış miktarı sıfır ise, BLANK fonksiyonunu kullanarak boş bir değer döndüren, aksi takdirde satış miktarı değerini koruyan DAX formülü,
+IF(Ürünler[Satış Miktarı]=0, BLANK(), Ürünler[Satış Miktarı])
