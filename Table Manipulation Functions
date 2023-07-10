@@ -1,17 +1,17 @@
 
 --DISTINCT fonksiyonu, belirli bir tablodaki benzersiz değerleri döndürmek için kullanılan bir DAX fonksiyonudur. 
 --Ürünler tablosundaki Kategori sütununda yer alan benzersiz kategori değerlerini döndüren DAX formülü,
-DISTINCT(Ürünler[Kategori])
+=DISTINCT(Ürünler[Kategori])
 
 --GROUPBY fonksiyonu, belirli bir tabloyu gruplara ayırmak ve her grup için bir veya daha fazla özet değer hesaplamak için kullanılan bir DAX fonksiyonudur. 
 --Satışlar tablosunu Kategori sütununa göre gruplayan ve her bir grup için Toplam Satış Miktarı ve Ortalama Satış Miktarı özet değerlerini hesaplayan DAX formülü,
-GROUPBY(
+=GROUPBY(
     Satışlar,
     Satışlar[Kategori],
     "Toplam Satış Miktarı", SUM(Satışlar[Satış Miktarı]),
     "Ortalama Satış Miktarı", AVERAGE(Satışlar[Satış Miktarı])
-)
+ )
 
 --TOPN fonksiyonu, belirtilen tablonun en üstteki N satırını döndürür.
 --Ürünler tablosundaki Satış Miktarı sütununa göre en yüksek satış miktarına sahip 5 ürünü döndüren DAX formülü,
-TOPN(5, Ürünler, Ürünler[Satış Miktarı], DESC)
+=TOPN(5, Ürünler, Ürünler[Satış Miktarı], DESC)
