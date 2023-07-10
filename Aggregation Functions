@@ -81,14 +81,3 @@ SUM(Satışlar[Satış Miktarı])
 --SUMX fonksiyonu, belirli bir tabloda veya tablo ifadesindeki satırlar üzerinde bir hesaplama yapar ve sonuç olarak belirli bir sütunun değerlerinin toplamını döndürür.
 --Ürünler tablosundaki her bir satır için Satış Miktarı ve Birim Fiyat sütunlarının çarpımını hesaplayan ve bu değerlerin toplamını döndüren DAX formülü,
 SUMX(Ürünler, Ürünler[Satış Miktarı] * Ürünler[Birim Fiyat])
-
-
-
-
-
-
-
-
-
-
-
