@@ -1,13 +1,13 @@
 
 --HASONEVALUE fonksiyonu, belirli bir sütunda tek bir değer olup olmadığını kontrol etmek için kullanılan bir DAX fonksiyonudur. Belirli bir sütunda yalnızca tek bir değer varsa "TRUE" değerini döndürür, aksi takdirde "FALSE" değerini döndürür.
 --Satışlar tablosundaki Kategori sütununda tek bir değer olup olmadığını kontrol eden DAX formülü,
-HASONEVALUE(Satışlar[Kategori])
+=HASONEVALUE(Satışlar[Kategori])
 
 --ISBLANK fonksiyonu, bir değerin boş olup olmadığını denetler ve TRUE veya FALSE döndürür.
 --Ürünler tablosundaki her bir ürünün Stok Miktarı sütununu kontrol eden ve boş olup olmadığını belirleyen DAX formülü,
-ISBLANK(Products[Stok Miktarı])
+=ISBLANK(Products[Stok Miktarı])
 
 --ISEMPTY fonksiyonu, bir tablonun boş olup olmadığını denetler.
 --Bilgi tablosunda 25'den büyük üle olup olmadığını sorgulayan DAX formülü,
-EVALUATE
-ROW("Any countries with count > 25?", NOT(ISEMPTY(FILTER(Info, [County]>25))))
+=EVALUATE
+     ROW("Any countries with count > 25?", NOT(ISEMPTY(FILTER(Info, [County]>25))))
