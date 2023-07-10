@@ -1,12 +1,12 @@
 
 --FORMAT fonksiyonu, bir değeri belirtilen biçime göre metne dönüştürür.
 --12345.6789 sayısını para birimi formatında biçimlendiren DAX formülü,
-FORMAT(12345.6789, "Currency")
+=FORMAT(12345.6789, "Currency")
 
 --LEFT fonksiyonu, bir metin değerinin belirli bir sayıda karakterini soldan başlayarak almak için kullanılan bir DAX fonksiyonudur. 
 --Metnin ilk 3 harfini alan DAX formülü,
-LEFT("Merhaba", 3)
+=LEFT("Merhaba", 3)
 
 --CONCATENATEX fonksiyonu, bir tablodaki değerleri belirli bir ayırıcıyla birleştirmek için kullanılan bir DAX fonksiyonudur.
 -- Müşteriler tablosundaki Müşteri Adı ve Satın Alma Miktarı sütunlarındaki değerleri birleştiren ve satın alma miktarlarını toplamının yanında virgülle ayrılmış bir şekilde gösteren DAX formülü,
-CONCATENATEX(Müşteriler, Müşteriler[Müşteri Adı] & " (" & FORMAT(Müşteriler[Satın Alma Miktarı], "#,##0.00") & " TL)", ", ")
+=CONCATENATEX(Müşteriler, Müşteriler[Müşteri Adı] & " (" & FORMAT(Müşteriler[Satın Alma Miktarı], "#,##0.00") & " TL)", ", ")
