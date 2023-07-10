@@ -1,4 +1,4 @@
 
 --DIVIDE fonksiyonu, bir sayıyı başka bir sayıya bölen DAX fonksiyonudur.
 --Satışlar tablosundaki satış miktarını iade miktarına bölen, eğer iade miktarı sıfır ise, 0 olarak belirtilen varsayılan değeri döndüren DAX formülü,
-DIVIDE(SUM(Satışlar[Satış Miktarı]), SUM(Satışlar[İade Miktarı]), 0)
+=DIVIDE(SUM(Satışlar[Satış Miktarı]), SUM(Satışlar[İade Miktarı]), 0)
