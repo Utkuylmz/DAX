@@ -2,19 +2,19 @@
 --RELATED fonksiyonu, başka bir tablodan ilişkili bir değer döndürür.
 --RELATED fonksiyonunu kullanarak Müşteriler tablosundaki müşterilerle Ürünler tablosundaki ürünler arasındaki ilişkiyi kuran, 
 ardından FILTER fonksiyonuyla belirtilen koşulları sağlayan müşterileri filtreleyen ve SUM fonksiyonuyla bu müşterilerin satış miktarlarını toplayan DAX formülü,
-CALCULATE(
+=CALCULATE(
     SUM(Satışlar[Satış Miktarı]),
-    FILTER(
+     FILTER(
         Müşteriler,
         RELATED(Ürünler[Kategori]) = "Elektronik" &&
         Müşteriler[Yıl] = 2022 &&
         Müşteriler[Satın Alma Durumu] = "Tamamlandı"
-    )
-)
+     )
+ )
 
 --RELATEDTABLE fonksiyonu, bir tablo ifadesini verilen filtreler tarafından değiştirilen bir bağlamda değerlendirir.
 --Ürünler tablosundaki ilişkili ürünleri elde eden, ardından FILTER fonksiyonuyla belirtilen koşulları sağlayan ürünleri filtreleyen ve SUM fonksiyonuyla bu ürünlerin satış miktarlarını toplayan DAX formülü,
-CALCULATE(
+=CALCULATE(
     SUM(Satışlar[Satış Miktarı]),
     FILTER(
         RELATEDTABLE(Ürünler),
