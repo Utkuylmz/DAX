@@ -1,5 +1,5 @@
 
---Aktif müşteriler arasından en yüksek toplam gelire sahip ilk 5 müşteriyi getiren
+--Aktif müşteriler arasından en yüksek toplam gelire sahip ilk 5 müşteriyi getiren DAX formülü,
 TopMüsteriler = 
 VAR ToplamGelir = SUM('Satislar'[Gelir])
 RETURN
@@ -10,4 +10,47 @@ TOPN (
         'Müsteriler'[Aktif] = TRUE
     ),
     [ToplamGelir]
+)
+
+--Tarih tablosundaki yıllara göre aylık ortalama satış miktarını hesaplayan DAX formülü,
+AylikSatisOrt. = 
+AVERAGEX (
+    VALUES('Tarih'[YilAy]),
+    CALCULATE(SUM('Satislar'[Miktar]))
+)
+
+--2023 yılında 1000 birimden fazla satış yapan işlemlerin sayısını hesaplayan DAX formülü,
+YuksekSatisSayisi = 
+CALCULATE(
+    COUNTROWS('Satislar'),
+    'Satislar'[Miktar] > 1000,
+    'Tarih'[Yil] = 2023
+)
+
+--Elektronik ve Kiyafet kategorilerine ait ürünlerin toplam satışını karşılaştıran DAX formülü,
+ToplamSatisKarsilastirma = 
+CALCULATE(
+    SUM('Satislar'[Miktar]),
+    'Urunler'[Kategori] = "Elektronik" || 'Urunler'[Kategori] = "Kiyafet"
+)
+
+--Elektronik kategorisinde 50000'den fazla toplam satışa sahip müşterileri getiren DAX formülü,
+YuksekGelirliElektronikMusterileri = 
+FILTER (
+    FILTER (
+        'Musteriler',
+        'Musteriler'[Kategori] = "Elektronik"
+    ),
+    'Satislar'[Miktar] > 50000
+)
+
+--Fiyatı 1000'den yüksek olan elektroikleri bulup, onların ortalama stok miktarlarını hesaplayan DAX formülü,
+YuksekFiyatliElektroniklericinOrtStokMiktari = 
+CALCULATE(
+    AVERAGE('Urunler'[Stok]),
+    FILTER(
+        'Urunler',
+        'Urunler'[Kategori] = "Elektronikler" &&
+        'Urunler'[Fiyat] > 1000
+    )
 )
