@@ -1,0 +1,13 @@
+
+--Aktif müşteriler arasından en yüksek toplam gelire sahip ilk 5 müşteriyi getiren
+TopMüsteriler = 
+VAR ToplamGelir = SUM('Satislar'[Gelir])
+RETURN
+TOPN (
+    5,
+    FILTER (
+        'Müsteriler',
+        'Müsteriler'[Aktif] = TRUE
+    ),
+    [ToplamGelir]
+)
